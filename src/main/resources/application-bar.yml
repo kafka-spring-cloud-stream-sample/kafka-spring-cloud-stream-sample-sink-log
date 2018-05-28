@@ -1,0 +1,18 @@
+spring.cloud.stream:
+  bindings:
+    input:
+      destination: hoge
+      group: bar
+      consumer:
+        headerMode: raw
+  kafka.streams.binder:
+    brokers:
+      - localhost:9092
+      - localhost:9093
+      - localhost:9094
+    zkNodes:
+      - localhost:2181
+    configuration:
+      default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+      default.value.serde: org.apache.kafka.common.serialization.Serdes$BytesSerde
+      commit.interval.ms: 1000
